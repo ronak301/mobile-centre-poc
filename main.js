@@ -16,8 +16,7 @@ import Crashes from "mobile-center-crashes";
 
 export default class mcPOC extends Component {
   render() {
-    Crashes.generateTestCrash();
-    throw new Error('Error here, wohooo!!!');
+    this.crashAfterSomeTime();
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
@@ -32,6 +31,12 @@ export default class mcPOC extends Component {
         </Text>
       </View>
     );
+  }
+  
+  crashAfterSomeTime = () => {
+    setTimeout(() => {
+      throw new Error('Error here, wohooo!!!');
+    }, 10000)
   }
 }
 
